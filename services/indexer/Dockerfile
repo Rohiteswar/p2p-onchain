@@ -5,11 +5,14 @@ WORKDIR /app
 
 RUN apt-get update && apt-get install -y pkg-config && rm -rf /var/lib/apt/lists/*
 
-# Copy workspace manifests first (layer-cache friendly)
+# Copy workspace manifests and services only
+# programs/ is excluded — Pinocchio targets BPF and cannot compile for x86_64
 COPY Cargo.toml Cargo.lock ./
-COPY programs/            programs/
 COPY services/indexer/    services/indexer/
 COPY services/api/        services/api/
+
+# Remove the on-chain program from workspace members before building
+RUN sed -i '/"programs\/p2p-protocol"/d' Cargo.toml
 
 # Build only the indexer binary
 RUN cargo build --release -p p2p-indexer
