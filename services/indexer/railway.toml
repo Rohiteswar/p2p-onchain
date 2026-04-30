@@ -1,0 +1,7 @@
+[build]
+dockerfilePath = "services/indexer/Dockerfile"
+
+[deploy]
+startCommand  = "p2p-indexer"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 10

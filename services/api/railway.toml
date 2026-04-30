@@ -1,0 +1,10 @@
+[build]
+dockerfilePath = "services/api/Dockerfile"
+
+[deploy]
+startCommand  = "p2p-api"
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 5
+
+[[services]]
+name = "p2p-api"

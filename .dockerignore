@@ -1,0 +1,7 @@
+target/
+website/
+.git/
+.env
+node_modules/
+**/*.md
+dist/

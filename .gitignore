@@ -1,0 +1,20 @@
+# Rust
+target/
+
+# Environment — never commit credentials
+.env
+.env.local
+**/.env
+**/.env.local
+
+# Node
+node_modules/
+
+# Build output
+dist/
+
+# Website has its own separate git repo
+website/
+
+# macOS
+.DS_Store

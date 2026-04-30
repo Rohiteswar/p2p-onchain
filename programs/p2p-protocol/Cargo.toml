@@ -1,0 +1,20 @@
+[package]
+name = "p2p-protocol"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "p2p_protocol"
+
+[features]
+default = []
+no-entrypoint = []
+
+[dependencies]
+pinocchio        = { workspace = true }
+pinocchio-token  = { workspace = true }
+pinocchio-log    = { workspace = true }
+solana-address   = { workspace = true }
+solana-program-error = { workspace = true }
+pinocchio-system  = { workspace = true }
