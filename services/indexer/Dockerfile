@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y pkg-config && rm -rf /var/lib/apt/lists
 COPY Cargo.toml Cargo.lock ./
 COPY services/indexer/    services/indexer/
 COPY services/api/        services/api/
+COPY services/migrations/ services/migrations/
 
 # Remove the on-chain program from workspace members before building
 RUN sed -i '/"programs\/p2p-protocol"/d' Cargo.toml
